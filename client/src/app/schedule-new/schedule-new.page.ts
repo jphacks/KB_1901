@@ -52,6 +52,7 @@ export class ScheduleNewPage implements OnInit {
         let result = {'plan_name': this.plan_name, 'memo': this.memo, 'day': []};
         //dayの整形
         for (let day of this.days) result.day.push(day.split('T')[0]);
+        console.log(this.days);
 
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_generate";
         const formData =

@@ -21,10 +21,10 @@
     </ion-list>
   </ion-card>
 
-  <ion-item *ngFor="let text of days;let i = index;trackBy: trackBy">
-    <ion-label position="floating">年/月/日</ion-label>
-    <ion-datetime displayFormat="YYYY/MM/DD" placeholder="日付を選択..." min="2019-10-19" max="2100-10-19"
-                  value="2019-10-19" [(ngModel)]="days[i]"></ion-datetime>
+  <ion-item>
+    <label *ngFor="let text of days;let i = index;trackBy: trackBy">
+      <input type="date" value="2019-10-20" [(ngModel)]="days[i]"><br>
+    </label>
   </ion-item>
 
   <ion-fab-button (click)="incrementDay()">+</ion-fab-button>
