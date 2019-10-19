@@ -5,8 +5,33 @@
 </ion-header>
 
 <ion-content>
-  <div>予定名</div>
-  <div>候補日</div>
-  <div>メモ</div>
-  <div (click)="generateLink()">リンク作成</div>
+  <ion-card>
+    <ion-list>
+      <ion-item>
+        <label>
+          予定名
+          <ion-input placeholder="予定名を入力" type="text" [(ngModel)]="plan_name" clearInput></ion-input>
+        </label>
+      </ion-item>
+      <ion-item>
+        <label>
+          <ion-textarea placeholder="時間帯などの備考があれば..." [(ngModel)]="memo">メモ</ion-textarea>
+        </label>
+      </ion-item>
+    </ion-list>
+  </ion-card>
+
+  <ion-item *ngFor="let text of days;let i = index;trackBy: trackBy">
+    <ion-label position="floating">年/月/日</ion-label>
+    <ion-datetime displayFormat="YYYY/MM/DD" placeholder="日付を選択..." min="2019-10-19" max="2100-10-19"
+                  value="2019-10-19" [(ngModel)]="days[i]"></ion-datetime>
+  </ion-item>
+
+  <ion-fab-button (click)="incrementDay()">+</ion-fab-button>
+  <ion-fab-button (click)="decrementDay()">-</ion-fab-button>
+
+  <ion-button (click)="generateLink()" [hidden]="generate_button_flag">リンク作成</ion-button>
+  <ion-input [hidden]="!generate_button_flag" readonly>http://???/{{key}}</ion-input>
+
+  <ion-button (click)="goHome()" [hidden]="!generate_button_flag">ホームへ戻る</ion-button>
 </ion-content>

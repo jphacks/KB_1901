@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Router} from '@angular/router';
+import {ActivatedRoute, ParamMap, Router} from "@angular/router";
 
 @Component({
     selector: 'app-home',
@@ -8,13 +8,26 @@ import {Router} from '@angular/router';
 })
 export class HomePage {
 
+    private user_name: string;
+    private auth_token: string;
+
     constructor(
         private router: Router,
+        private route: ActivatedRoute,
     ) {
+        this.route.paramMap.subscribe((params: ParamMap) => {
+            this.auth_token = params.get('authToken');
+            this.user_name = params.get('user_name');
+        });
     }
 
     goLogin() {
-        this.router.navigateByUrl('/login');
+        console.log(this.user_name);
+        if (this.user_name !== 'null') {
+            alert("ログアウトしますか？");
+        } else {
+            this.router.navigateByUrl('/login');
+        }
     }
 
     goScheduleNew() {
