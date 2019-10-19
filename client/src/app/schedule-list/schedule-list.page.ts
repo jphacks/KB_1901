@@ -36,9 +36,8 @@ export class ScheduleListPage implements OnInit {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         };
-        console.log(headers);
         this.http.post(url, formData, headers).subscribe(data => {
-            console.log(data);
+            this.plans = JSON.parse(data["data"].json);
         }, error => {
             console.log(error);
             alert("何らかのエラーが発生しました。")
@@ -46,7 +45,7 @@ export class ScheduleListPage implements OnInit {
     }
 
     goScheduleId(id) {
-        this.router.navigateByUrl('/schedule-id');
+        this.router.navigateByUrl('/schedule-id/' + this.auth_token + '/' + this.plans[id].key);
     }
 
 }
