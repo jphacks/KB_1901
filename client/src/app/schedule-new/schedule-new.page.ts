@@ -12,8 +12,15 @@ import config from "../../../config";
 export class ScheduleNewPage implements OnInit {
 
     public plan_name: string;
+    public input_day: string;
+    public input_area: string;
+    public input_genre: string;
+
     public memo: string;
     public days: any = [];
+    public areas: any = [];
+    public genres: any = [];
+
     public generate_button_flag: boolean = false;
     public key: string;
     private auth_token: string;
@@ -24,7 +31,6 @@ export class ScheduleNewPage implements OnInit {
         private http: HttpClient,
         private route: ActivatedRoute,
     ) {
-        this.days.push("");
     }
 
     ngOnInit() {
@@ -34,34 +40,54 @@ export class ScheduleNewPage implements OnInit {
         });
     }
 
-    incrementDay() {
-        this.days.push("");
-        console.log(this.days);
+    addArea() {
+        this.areas.push(this.input_area);
     }
 
-    decrementDay() {
-        this.days.pop();
-        console.log(this.days);
+    addDay() {
+        this.days.push(this.input_day);
+    }
+
+    addGenre() {
+        this.genres.push(this.input_genre);
     }
 
     trackBy(index: number, obj: any): any {
         return index;
     }
 
+
+    //TODO:複数回答強制
+
     generateLink() {
         if (!this.plan_name) {
             alert("件名が空欄です。");
             return;
         }
-        let result = {'plan_name': this.plan_name, 'memo': this.memo, 'day': []};
+        let result = {'plan_name': this.plan_name, 'memo': this.memo, 'day': [], 'area': [], 'genre': []};
 
-        for (let day of this.days) {
-            if (day === "") {
-                alert("入力されていない日にちがあります。");
-                return;
-            }
-            result.day.push(day.split('T')[0]);
+
+        if (this.days.length == 0) {
+            alert("入力されていない日にちがあります。");
+            return;
+        } else {
+            for (let day of this.days) result.day.push(day.split('T')[0]);
         }
+
+        if (this.areas.length == 0) {
+            alert("入力されていないエリアがあります。");
+            return;
+        } else {
+            for (let area of this.areas) result.area.push(area);
+        }
+
+        if (this.genres.length == 0) {
+            alert("入力されていないジャンルがあります。");
+            return;
+        } else {
+            for (let genre of this.genres) result.genre.push(genre);
+        }
+
         //dayの整形
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_generate";
         const formData =
