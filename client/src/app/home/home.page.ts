@@ -39,7 +39,7 @@ export class HomePage {
 
     goScheduleList() {
         if (this.user_name !== 'null' && this.auth_token !== 'null') {
-            this.router.navigateByUrl('/schedule-list');
+            this.router.navigateByUrl('/schedule-list/' + this.auth_token + '/' + this.user_name);
         } else {
             alert("ログインしていません。");
         }
