@@ -16,14 +16,13 @@ export class HomePage {
         private route: ActivatedRoute,
     ) {
         this.route.paramMap.subscribe((params: ParamMap) => {
-            this.auth_token = params.get('authToken');
+            this.auth_token = params.get('auth_token');
             this.user_name = params.get('user_name');
         });
     }
 
     goLogin() {
-        console.log(this.user_name);
-        if (this.user_name !== 'null') {
+        if (this.user_name !== 'null' && this.auth_token !== 'null') {
             alert("ログアウトしますか？");
         } else {
             this.router.navigateByUrl('/login');
@@ -31,11 +30,19 @@ export class HomePage {
     }
 
     goScheduleNew() {
-        this.router.navigateByUrl('/schedule-new');
+        if (this.user_name !== 'null' && this.auth_token !== 'null') {
+            this.router.navigateByUrl('/schedule-new/' + this.auth_token + '/' + this.user_name);
+        } else {
+            alert("ログインしていません。");
+        }
     }
 
     goScheduleList() {
-        this.router.navigateByUrl('/schedule-list');
+        if (this.user_name !== 'null' && this.auth_token !== 'null') {
+            this.router.navigateByUrl('/schedule-list');
+        } else {
+            alert("ログインしていません。");
+        }
     }
 
     goFoundStore() {

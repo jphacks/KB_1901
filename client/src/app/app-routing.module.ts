@@ -6,10 +6,10 @@ const routes: Routes = [
     {path: 'home/:auth_token/:user_name', loadChildren: () => import('./home/home.module').then(m => m.HomePageModule)},
     {path: 'login', loadChildren: './login/login.module#LoginPageModule'},
     {path: 'schedule-new/:auth_token/:user_name', loadChildren: './schedule-new/schedule-new.module#ScheduleNewPageModule'},
-    {path: 'schedule-list', loadChildren: './schedule-list/schedule-list.module#ScheduleListPageModule'},
-    {path: 'schedule-id', loadChildren: './schedule-id/schedule-id.module#ScheduleIdPageModule'},
+    {path: 'schedule-list/:auth_token/:user_name', loadChildren: './schedule-list/schedule-list.module#ScheduleListPageModule'},
+    {path: 'schedule-id/:auth_token/:key', loadChildren: './schedule-id/schedule-id.module#ScheduleIdPageModule'},
     {path: 'result', loadChildren: './result/result.module#ResultPageModule'},
-    {path: 'found-store', loadChildren: './found-store/found-store.module#FoundStorePageModule'},
+    {path: 'found-store/:auth_token/:components', loadChildren: './found-store/found-store.module#FoundStorePageModule'},
     {path: 'schedule-form', loadChildren: './schedule-form/schedule-form.module#ScheduleFormPageModule'},
 ];
 
