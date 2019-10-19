@@ -1,0 +1,103 @@
+.schedule-new-background {
+  --background: none;
+  background-image: url('../../assets/img/share_bg.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+.header_box {
+  //width: 80vw;
+  height: 7%;
+  background: white;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.header_menu_button {
+  --box-shadow: none;
+  --background: #ffa161;
+  margin-left: 85%;
+  margin-top: 10px;
+}
+
+.title {
+  height: 80px;
+  text-align: center;
+  font-size: xx-large;
+  color: #f3f3f3;
+}
+
+.main_content_box {
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+
+.content_top {
+  height: 20px;
+}
+
+.add_button {
+  --background: #808080;
+  height: 40px;
+  width: 8%;
+  border-radius: 30px;
+  margin: 10px;
+  font-size: x-large;
+}
+
+.input_component {
+  display: flex;
+}
+
+.output_component {
+  display: flex;
+}
+
+.io_component {
+  display: flex;
+  flex-direction: row-reverse; /*横並び・右から左*/
+}
+
+.link_button {
+  --box-shadow: none;
+  --background: #ffa161;
+  margin-left: 40vw;
+}
+
+.cancel_button {
+  --box-shadow: none;
+  --background: #c0c0c0;
+  margin-left: 40vw;
+}
+
+ion-input {
+  --background: #c0c0c0;
+  border-radius: 10px;
+  text-align: left;
+  margin-left: 10%;
+  width: 70vw;
+}
+
+ion-textarea {
+  --background: #c0c0c0;
+  border-radius: 10px;
+  text-align: left;
+  margin-left: 10%;
+  width: 70vw;
+}
+
+ion-item {
+  --background: none;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
