@@ -6,16 +6,20 @@ ion-toolbar{
 }
   
 ion-content{
-  background: white;
+  --background: #fff url("../../assets/desert_dark.jpg") no-repeat center center / cover;
   width: 100%;
   height: 300px;
   text-align: center;
-  
+  ion-list{
+    border-radius: 15px 15px 15px 15px;
+  }
   ion-item{
     text-align: center;
     input{
+      height: 40px;
       border-radius: 15px 15px 15px 15px;
-      color: white;
+      background: rgb(126, 126, 126, 0.5);
+      color: whitesmoke;
     }
   }
   ion-button{
