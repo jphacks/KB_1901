@@ -1,1 +1,33 @@
+ion-toolbar{
+  text-align: right;
+  ion-title{
+    text-align: center;
+  }
+  ion-button{
+    --background: #ffa161;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    --border-radius: 10px 10px 10px 10px;
+  }
+}
 
+ion-content{
+  --background: #fff url("../../assets/desert.jpg") no-repeat center center / cover;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+  
+  img{
+    width: 100%;
+    max-width: 250px;
+    margin: 50px 5px 50px 5px;
+  }
+  ion-button{
+    --background: #ffa161;
+    width: 80%;
+    max-width: 300px;
+    height: 50px;
+    --border-radius: 15px 15px 15px 15px;
+  }
+}
