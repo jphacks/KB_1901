@@ -1,6 +1,6 @@
 # サンプル（プロダクト名）
 
-[![rakuda manager](KB_1901/imgs/logos/2_rakuda_icon_orange.png)]
+[![rakuda manager](imgs/logos/2_rakuda_icon_orange.png)]
 
 ## 製品概要
 
