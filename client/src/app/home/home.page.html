@@ -1,14 +1,13 @@
 <ion-header>
   <ion-toolbar>
     <ion-title>
-      Ionic Blank
+      TOP
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="ion-padding">
-    The world is your oyster.
-    <p>If you get lost, the <a target="_blank" rel="noopener" href="https://ionicframework.com/docs/">docs</a> will be your guide.</p>
-  </div>
+  <div (click)="goScheduleNew()">予定作成</div>
+  <div (click)="goScheduleList()">予定閲覧</div>
+  <div (click)="goFoundStore()">店探し</div>
 </ion-content>
