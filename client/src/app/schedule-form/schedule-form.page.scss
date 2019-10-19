@@ -1,0 +1,76 @@
+.schedule-form-background {
+  --background: none;
+  background-image: url('../../assets/img/city_bg.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+.header_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  background: white;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.header_menu_button {
+  --box-shadow: none;
+  --background: #ffa161;
+  margin-left: 20%;
+}
+
+.header_logo {
+  height: auto;
+  width: 30vw;
+  margin-right: 20%;
+}
+
+ion-toolbar {
+  text-align: right;
+
+  ion-title {
+    text-align: center;
+  }
+
+  ion-button {
+    --background: #ffa161;
+    text-align: left;
+    margin-left: 10px;
+    margin-right: 10px;
+    --border-radius: 10px 10px 10px 10px;
+  }
+}
+
+ion-content {
+  //--background: #fff url("../../assets/desert.jpg") no-repeat center center;
+  background: white;
+  width: 100%;
+  height: 300px;
+  text-align: center;
+
+  ion-button {
+    --background: #ffa161;
+    width: 80%;
+    max-width: 120px;
+    height: 50px;
+    --border-radius: 15px 15px 15px 15px;
+  }
+
+  ion-segment-button {
+    --color: #ffa161;
+    --color-checked: #f3f3f3;
+    --background-checked: #ffa161;
+    --border-color: #ffa161;
+    --background-hover: #ffd2bd;
+    --border-radius: 10px;
+    --border-width: 1px;
+  }
+
+}
