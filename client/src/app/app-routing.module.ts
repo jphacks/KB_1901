@@ -8,6 +8,7 @@ const routes: Routes = [
   { path: 'schedule-new', loadChildren: './schedule-new/schedule-new.module#ScheduleNewPageModule' },
   { path: 'schedule-list', loadChildren: './schedule-list/schedule-list.module#ScheduleListPageModule' },
   { path: 'schedule-id', loadChildren: './schedule-id/schedule-id.module#ScheduleIdPageModule' },
+  { path: 'result', loadChildren: './result/result.module#ResultPageModule' },
 ];
 
 @NgModule({
