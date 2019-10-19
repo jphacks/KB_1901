@@ -29,8 +29,7 @@ export class ScheduleFormPage implements OnInit {
 
   segmentChanged(ev: any, day: string) {
     console.log('Segment changed', day, ev.target.value);
-    (this.select_day.find((sd) => sd.day == day) ||{}) 
-    .check = ev.target.value;
+    this.select_day.find((sd) => sd.day == day).check = ev.target.value;
     
     console.log(this.select_day);
   }
