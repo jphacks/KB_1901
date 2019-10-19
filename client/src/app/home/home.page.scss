@@ -18,6 +18,11 @@ ion-content{
   height: 300px;
   text-align: center;
   
+  img{
+    width: 100%;
+    max-width: 250px;
+    margin: 50px 5px 50px 5px;
+  }
   ion-button{
     --background: #ffa161;
     width: 80%;
