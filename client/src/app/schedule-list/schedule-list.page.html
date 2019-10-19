@@ -1,12 +1,22 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>schedule_list</ion-title>
-  </ion-toolbar>
-</ion-header>
+<ion-content class="schedule-list-background">
+  <div class="header_box">
+    <img class="header_logo" src="../../assets/img/logo.png" alt="">
+    <ion-button class="header_menu_button">三</ion-button>
+  </div>
 
-<ion-content>
-  <ion-list *ngFor="let plan of plans;index as i">
-    <div (click)="goScheduleId(i)">予定{{i + 1}}:{{plan.name}}</div>
-    <div>メモ:{{plan.memo}}</div>
-  </ion-list>
+  <div class="title">予定を企画する</div>
+
+  <div class="main_content_box">
+    <div class="content_top"></div>
+    <ion-list *ngFor="let plan of plans;index as i">
+      <ion-item>
+        <div>
+          <div class="plan_title">{{plan.name}}</div>
+          <div class="plan_memo">メモ..{{plan.memo}}</div>
+        </div>
+        <ion-button (click)="goScheduleId(i)">確認</ion-button>
+      </ion-item>
+    </ion-list>
+  </div>
 </ion-content>
+
