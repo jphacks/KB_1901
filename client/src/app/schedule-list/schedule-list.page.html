@@ -4,6 +4,9 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content *ngFor="let plan of plans;index as i">
-  <div (click)="goScheduleId(i)">予定{{i}}:〇〇</div>
+<ion-content>
+  <ion-list *ngFor="let plan of plans;index as i">
+    <div (click)="goScheduleId(i)">予定{{i + 1}}:{{plan.name}}</div>
+    <div>メモ:{{plan.memo}}</div>
+  </ion-list>
 </ion-content>

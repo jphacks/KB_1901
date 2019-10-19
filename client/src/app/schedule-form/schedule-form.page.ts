@@ -40,11 +40,11 @@ export class ScheduleFormPage implements OnInit {
         this.route.paramMap.subscribe((params: ParamMap) => {
             this.key = params.get('key');
         });
+      
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_check";
         const formData = "plan_key=" + encodeURI(this.key);
         const headers = {"headers": {"Content-Type": "application/x-www-form-urlencoded"}};
         this.http.post(url, formData, headers).subscribe(data => {
-
             console.log(data);
         }, error => {
             console.log(error);
