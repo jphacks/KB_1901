@@ -13,6 +13,10 @@ export class HomePage {
     ) {
     }
 
+    goLogin() {
+        this.router.navigateByUrl('/login');
+    }
+
     goScheduleNew() {
         this.router.navigateByUrl('/schedule-new');
     }
