@@ -1,13 +1,16 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
-      TOP
-    </ion-title>
-    <ion-button (click)="goLogin()">ログイン</ion-button>
+    <ion-row>
+      <ion-title>
+        TOP
+      </ion-title>
+      <ion-button (click)="goLogin()">ログイン</ion-button>
+      </ion-row>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content class="ion-padding">
+  <img src="assets/1_rakuda_logo_orange.png" alt="">
   <ion-button (click)="goScheduleNew()">予定作成</ion-button>
   <ion-button (click)="goScheduleList()">予定閲覧</ion-button>
   <ion-button (click)="goFoundStore()">店探し</ion-button>
