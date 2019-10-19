@@ -1,4 +1,5 @@
 import {Component, OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 
 @Component({
     selector: 'app-schedule-id',
@@ -7,14 +8,16 @@ import {Component, OnInit} from '@angular/core';
 })
 export class ScheduleIdPage implements OnInit {
 
-    constructor() {
+    constructor(
+        private router: Router,
+    ) {
     }
 
     ngOnInit() {
     }
 
     goFoundStore() {
-        alert("実装中♥");
+        this.router.navigateByUrl('/found-store');
     }
 
 }

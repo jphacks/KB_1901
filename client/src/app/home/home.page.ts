@@ -22,7 +22,7 @@ export class HomePage {
     }
 
     goFoundStore() {
-        alert("実装中♥");
+        this.router.navigateByUrl('/found-store');
     }
 
 }
