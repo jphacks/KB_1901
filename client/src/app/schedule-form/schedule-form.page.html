@@ -9,9 +9,9 @@
     <ion-label floating>{{title}}</ion-label>
   </div>
 
-  <form #form="ngForm" (ngSubmit)="submitData()"> 
+  <form #form="ngForm" (ngSubmit)="submitData()">
     <div>
-        <ion-label>候補日:</ion-label>
+      <ion-label>候補日:</ion-label>
       <ion-list>
         <ion-item *ngFor="let c of candidates">
           {{c.day}}
@@ -23,8 +23,8 @@
               <ion-label>△</ion-label>
             </ion-segment-button>
             <ion-segment-button value="3">
-                <ion-label>×</ion-label>
-              </ion-segment-button>  
+              <ion-label>×</ion-label>
+            </ion-segment-button>
           </ion-segment>
         </ion-item>
       </ion-list>
@@ -40,17 +40,18 @@
       <ion-label>お店のリクエスト:</ion-label>
       <ion-list>
         <ion-label>希望エリア</ion-label>
-        <ion-input placeholder="いんぷっと" (ionChange)="handleAreaSelect($event)" ></ion-input>  
+        <ion-input placeholder="いんぷっと" (ionChange)="handleAreaSelect($event)"></ion-input>
         <ion-label>希望ジャンル</ion-label>
-        <ion-input placeholder="いんぷっと" (ionChange)="handleGenreSelect($event)" ></ion-input>
+        <ion-input placeholder="いんぷっと" (ionChange)="handleGenreSelect($event)"></ion-input>
         <ion-label>自由記述</ion-label>
         <ion-item>
-          <ion-textarea placeholder="Enter more information here..." (ionChange)="handleFreeWrite($event)" ></ion-textarea>
+          <ion-textarea placeholder="Enter more information here..."
+                        (ionChange)="handleFreeWrite($event)"></ion-textarea>
         </ion-item>
       </ion-list>
     </div>
     <div class="ion-padding">
-      <ion-button expand="block" type="submit" >Submit</ion-button>
+      <ion-button expand="block" type="submit">Submit</ion-button>
     </div>
   </form>
 </ion-content>

@@ -40,7 +40,7 @@ export class ScheduleNewPage implements OnInit {
     }
 
     decrementDay() {
-        this.days.pop("");
+        this.days.pop();
         console.log(this.days);
     }
 
@@ -49,11 +49,20 @@ export class ScheduleNewPage implements OnInit {
     }
 
     generateLink() {
+        if (!this.plan_name) {
+            alert("件名が空欄です。");
+            return;
+        }
         let result = {'plan_name': this.plan_name, 'memo': this.memo, 'day': []};
-        //dayの整形
-        for (let day of this.days) result.day.push(day.split('T')[0]);
-        console.log(this.days);
 
+        for (let day of this.days) {
+            if (day === "") {
+                alert("入力されていない日にちがあります。");
+                return;
+            }
+            result.day.push(day.split('T')[0]);
+        }
+        //dayの整形
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_generate";
         const formData =
             "account=" + encodeURI(this.user_name) +
