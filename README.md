@@ -78,3 +78,11 @@
 - アカウント情報DB
 - 予定情報DB
 - クライアント側UI
+
+## 実行
+
+`cd client`
+`npm install`
+`npm install -g ionic@4`
+`ionic serve`
+
