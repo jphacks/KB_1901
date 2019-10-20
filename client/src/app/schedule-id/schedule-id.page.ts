@@ -11,6 +11,12 @@ import config from "../../../config";
 export class ScheduleIdPage implements OnInit {
     private auth_token: string;
     private key: string;
+    public plan_name: string;
+    public answer_count;
+    public answer_genre;
+    public day;
+    public area;
+    public free;
 
     constructor(
         private router: Router,
@@ -35,7 +41,14 @@ export class ScheduleIdPage implements OnInit {
             }
         };
         this.http.post(url, formData, headers).subscribe(data => {
-            console.log(data);
+            let json_data = JSON.parse(data['data'].json);
+            console.log(json_data);
+            this.plan_name = json_data.plan_name;
+            this.answer_count = json_data.answer_count;
+            this.day = json_data.day;
+            this.area = json_data.area;
+            this.answer_genre = json_data.genre;
+            this.free = json_data.free;
         }, error => {
             console.log(error);
             alert("何らかのエラーが発生しました。")
@@ -43,7 +56,7 @@ export class ScheduleIdPage implements OnInit {
     }
 
     goFoundStore() {
-        this.router.navigateByUrl('/found-store');
+        this.router.navigateByUrl('/found-store/' + this.area[0] + '/' + this.answer_genre[0]);
     }
 
 }
