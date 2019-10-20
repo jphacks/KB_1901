@@ -8,24 +8,20 @@
 }
 
 .header_box {
-  //width: 80vw;
-  height: 7%;
-  min-height: 50px;
-  background: white;
-  border-radius: 10px;
-  margin-top: 15px;
-  margin-right: 20px;
-  margin-left: 20px;
-  margin-bottom: 50px;
-  padding-top: 5px;
-  padding-bottom: 5px;
-
-  .header_menu_button {
-    height: 80%;
-    --box-shadow: none;
-    --background: #ffa161;
-    margin-left: 85%;
-  }  
+ display: flex;
+ justify-content: center;
+ align-items: center;
+ height: 80px;
+ background: white;
+ border-radius: 10px;
+ margin-top: 15px;
+ margin-right: 20px;
+ margin-left: 20px;
+ margin-bottom: 50px;
+}
+.header_logo {
+ height: auto;
+ max-height: 60px;
 }
 
 .title {
