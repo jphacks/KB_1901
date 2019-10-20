@@ -1,6 +1,6 @@
 # らくだ幹事長
-VIDEO
-[![video](imgs/logos/1_rakuda_logo_orange.png)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
+![logo](imgs/logos/1_rakuda_logo_orange.png)
+[![video](samune.png)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
 
 ## 製品概要
 
