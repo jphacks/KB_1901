@@ -1,8 +1,7 @@
 <ion-content class="found-store-background">
   <div class="header_box">
-    <img class="header_logo" src="../../assets/img/logo.png" alt="">
-    <ion-button class="header_menu_button">三</ion-button>
-  </div>
+   <img class="header_logo" src="../../assets/img/logo.png" alt="">
+ </div>
   <ion-header>お店検索</ion-header>
   <ion-list>
     <ion-item *ngFor="let param of api_param;index as i">
@@ -30,6 +29,8 @@
       {{json.rest_day}}
       {{json.area}}
       {{json.average_money}}
+      {{json.tel_number}}
+
     </ion-item>
   </ion-list>
 </ion-content>
