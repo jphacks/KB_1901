@@ -81,8 +81,8 @@
 
 ## 実行
 
-`cd client`
-`npm install`
-`npm install -g ionic@4`
-`ionic serve`
+1. `cd client`
+2. `npm install`
+3. `npm install -g ionic@4`
+4. `ionic serve`
 
