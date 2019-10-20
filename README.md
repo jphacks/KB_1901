@@ -51,6 +51,7 @@
 今回スポンサーから提供されたAPI、製品などの外部技術があれば記述をして下さい。
 
 * GURUNAVI レストラン検索API 
+> https://api.gnavi.co.jp/api/
 
 #### フレームワーク・ライブラリ・モジュール
 * Ionic Framework (Web UI)
