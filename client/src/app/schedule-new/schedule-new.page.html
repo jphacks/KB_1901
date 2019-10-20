@@ -1,0 +1,56 @@
+<ion-content class="schedule-new-background">
+  <div class="header_box">
+    <ion-button class="header_menu_button">三</ion-button>
+  </div>
+
+  <div class="title">予定を企画する</div>
+  <div class="main_content_box">
+    <div class="content_top"></div>
+    <ion-item>
+      <label>予定名<span style="color: red; ">*</span></label>
+      <ion-input class="input_box" placeholder="例)飲み会" type="text" [(ngModel)]="plan_name" clearInput></ion-input>
+    </ion-item>
+    <ion-item>
+      <div>
+        <div class="input_component">
+          <label>候補日<span style="color: red; ">*</span></label>
+          <ion-input placeholder="日付を入力" [(ngModel)]="input_day"></ion-input>
+          <ion-button class="add_button" (click)="addDay()">+</ion-button>
+        </div>
+        <div class="output_component" *ngFor="let day of days">{{day}}</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <div class="input_component">
+          <label>候補エリア<span style="color: red; ">*</span></label>
+          <ion-input placeholder="例)東京" [(ngModel)]="input_area"></ion-input>
+          <ion-button class="add_button" (click)="addArea()">+</ion-button>
+        </div>
+        <div class="output_component" *ngFor="let area of areas">{{area}}</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <div>
+        <div class="input_component">
+          <label>候補ジャンル<span style="color: red; ">*</span></label>
+          <ion-input placeholder="例)中華" [(ngModel)]="input_genre"></ion-input>
+          <ion-button class="add_button" (click)="addGenre()">+</ion-button>
+        </div>
+        <div class="output_component" *ngFor="let genre of genres">{{genre}}</div>
+      </div>
+    </ion-item>
+    <ion-item>
+      <label>ノート</label>
+      <ion-textarea placeholder="備考" [(ngModel)]="memo"></ion-textarea>
+    </ion-item>
+  </div>
+
+  <ion-button class="link_button" (click)="generateLink()" [hidden]="generate_button_flag">リンク作成</ion-button>
+  <ion-button class="cancel_button" (click)="goHome()" [hidden]="generate_button_flag">キャンセル</ion-button>
+
+
+  <ion-input [hidden]="!generate_button_flag" readonly>http://???/{{key}}</ion-input>
+
+  <ion-button (click)="goHome()" [hidden]="!generate_button_flag">ホームへ戻る</ion-button>
+</ion-content>

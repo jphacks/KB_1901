@@ -1,0 +1,85 @@
+.schedule-list-background {
+  --background: none;
+  background-image: url('../../assets/img/city_bg.png');
+  background-repeat: no-repeat;
+  background-position: right;
+  background-position-y: bottom;
+  background-size: cover;
+}
+
+.header_box {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8%;
+  background: white;
+  border-radius: 10px;
+  margin-top: 15px;
+  margin-right: 20px;
+  margin-left: 20px;
+  margin-bottom: 50px;
+}
+
+.header_menu_button {
+  --box-shadow: none;
+  --background: #ffa161;
+  margin-left: 20%;
+}
+
+.header_logo {
+  height: auto;
+  width: 30vw;
+  margin-right: 20%;
+}
+
+.main_content_box {
+  background: #f3f3f3;
+  border-radius: 30px;
+  margin-left: 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column; /* 変更なし */
+  justify-content: center; /* 変更なし */
+  align-items: baseline;
+}
+
+.title {
+  height: 80px;
+  text-align: center;
+  font-size: xx-large;
+  color: #f3f3f3;
+}
+
+.plan_title {
+  font-size: x-large;
+  height: 30px;
+}
+
+.plan_memo {
+  margin-bottom: 10px;
+}
+
+.content_top {
+  height: 20px;
+}
+
+ion-button {
+  --box-shadow: none;
+  --background: #ffa161;
+}
+
+ion-list {
+  background: none;
+}
+
+ion-item {
+  --background: none;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  // 中央寄せ
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+}
