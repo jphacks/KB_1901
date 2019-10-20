@@ -1,6 +1,6 @@
 # らくだ幹事長
 ![logo](imgs/logos/1_rakuda_logo_orange.png)
-[![video](samune.png)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
+[![video](Screenshot.png)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
 
 ## 製品概要
 
@@ -45,6 +45,9 @@
 ### 今後の展望
 *今回は実現できなかったが、今後改善すること、どのように展開していくことが可能かについて記載をしてください。*
 
+- アカウント作成フォーム
+- マルチプラットフォーム対応
+- デザインの充実
 
 ## 開発内容・開発技術
 ### 活用した技術
@@ -66,6 +69,7 @@
 * *特になし*
 
 ### 独自開発技術（Hack Dayで開発したもの）
+
 #### 2日間に開発した独自の機能・技術
 - 予定作成・管理API
 - フォーム回答API
