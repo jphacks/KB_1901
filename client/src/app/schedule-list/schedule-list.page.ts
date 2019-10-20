@@ -36,7 +36,9 @@ export class ScheduleListPage implements OnInit {
                 "Content-Type": "application/x-www-form-urlencoded"
             }
         };
+
         this.http.post(url, formData, headers).subscribe(data => {
+            console.log(data);
             this.plans = JSON.parse(data["data"].json);
         }, error => {
             console.log(error);
