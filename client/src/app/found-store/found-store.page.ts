@@ -51,7 +51,7 @@ export class FoundStorePage implements OnInit {
 
     goResult() {
         if (!this.area || !this.freeword) {
-            alert("エリア、もしくはフリーワードを入力してください。");
+            alert("エリア、もしくはフリーワードが空白です。");
             return;
         }
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/store_search";
