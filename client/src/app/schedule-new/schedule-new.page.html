@@ -24,7 +24,7 @@
       <div>
         <div class="input_component">
           <label>候補エリア<span style="color: red; ">*</span></label>
-          <ion-input placeholder="例)東京駅" [(ngModel)]="input_area"></ion-input>
+          <ion-input placeholder="例)東京" [(ngModel)]="input_area"></ion-input>
           <ion-button class="add_button" (click)="addArea()">+</ion-button>
         </div>
         <div class="output_component" *ngFor="let area of areas">{{area}}</div>
