@@ -20,4 +20,16 @@
   </ion-list>
 
   <ion-button (click)="goResult()">検索検索♪</ion-button>
+
+  <ion-list *ngFor="let json of json_data">
+    <ion-item>
+      <img src="{{json.store_image}}" alt="">
+      {{json.store_name}}
+      {{json.category}}
+      {{json.url}}
+      {{json.rest_day}}
+      {{json.area}}
+      {{json.average_money}}
+    </ion-item>
+  </ion-list>
 </ion-content>

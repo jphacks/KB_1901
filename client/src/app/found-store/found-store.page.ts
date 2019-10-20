@@ -12,6 +12,7 @@ export class FoundStorePage implements OnInit {
     private area: string;
     public freeword: string;
     public login_flag: boolean = true;
+    private json_data;
 
     public api_param = [
         'No_smorking',
@@ -49,7 +50,10 @@ export class FoundStorePage implements OnInit {
     }
 
     goResult() {
-        //this.router.navigateByUrl('/result');
+        if (!this.area || !this.freeword) {
+            alert("エリア、もしくはフリーワードを入力してください。");
+            return;
+        }
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/store_search";
         const formData =
             'no_smorking=' + this.send_data_list[0] +
@@ -66,7 +70,8 @@ export class FoundStorePage implements OnInit {
             '&area=' + this.area;
         const headers = {"headers": {"Content-Type": "application/x-www-form-urlencoded"}};
         this.http.post(url, formData, headers).subscribe(data => {
-            console.log(data);
+            this.json_data = JSON.parse(data['data'].json);
+            if (this.json_data === null) alert("見つかりませんでした。");
         }, error => {
             console.log(error);
         });

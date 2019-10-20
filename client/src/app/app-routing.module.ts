@@ -8,7 +8,7 @@ const routes: Routes = [
     {path: 'schedule-new/:auth_token/:user_name', loadChildren: './schedule-new/schedule-new.module#ScheduleNewPageModule'},
     {path: 'schedule-list/:auth_token/:user_name', loadChildren: './schedule-list/schedule-list.module#ScheduleListPageModule'},
     {path: 'schedule-id/:auth_token/:key', loadChildren: './schedule-id/schedule-id.module#ScheduleIdPageModule'},
-    {path: 'result', loadChildren: './result/result.module#ResultPageModule'},
+    {path: 'result/:json_data', loadChildren: './result/result.module#ResultPageModule'},
     {path: 'found-store/:area/:genre', loadChildren: './found-store/found-store.module#FoundStorePageModule'},
     {path: 'schedule-form/:key', loadChildren: './schedule-form/schedule-form.module#ScheduleFormPageModule'},
 ];
