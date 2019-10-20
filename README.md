@@ -1,6 +1,8 @@
 # らくだ幹事長
 
-![rakuda manager](https://github.com/jphacks/KB_1901/blob/develop/imgs/logos/1_rakuda_logo_orange.png)
+![rakuda manager](imgs/logos/1_rakuda_logo_orange.png)
+[![video](https://img.youtube.com/vi/2ZEs9WGf0Z0&t=4s/0.jpg)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
+
 ## 製品概要
 
 
