@@ -17,6 +17,7 @@ import (
 type Store_Data struct {
 	Store_Name string `json:"store_name"`
 	Category string `json:"category"`
+	Tel_Number string `json:"tel_number"`
 	URL string `json:"url"`
 	Store_Image string `json:"store_image"`
 	Rest_Day string `json:"rest_day"`
@@ -114,23 +115,27 @@ func Store_Search( conf config.Connect_data, keys *jwt.JWTKeys) http.HandlerFunc
 			if err == nil {
 				for i := 0; i < len( area_result.GareaSmall ); i++ {
 					s_slice := strings.Split( area_result.GareaSmall[i].AreanameS, "・" )
-					
-					for r := 0; r < len( s_slice ); r++ {
-						if s_slice[r] == search_area {
-							url_option += "&areacode_s=" + area_result.GareaSmall[i].AreacodeS
+
+					if !search { 
+						for r := 0; r < len( s_slice ); r++ {
+							if s_slice[r] == search_area {
+								url_option += "&areacode_s=" + area_result.GareaSmall[i].AreacodeS
+								search = true
+								logger.Write_log( "area check ok", 1 )
+								break
+							}
+						}
+					}
+
+					if !search {
+						m_slice := area_result.GareaSmall[i].GareaMiddle.AreanameM
+
+						if m_slice == search_area {
+							url_option += "&areacode_m=" + area_result.GareaSmall[i].GareaMiddle.AreacodeM
 							search = true
 							logger.Write_log( "area check ok", 1 )
 							break
 						}
-					}
-
-					m_slice := area_result.GareaSmall[i].GareaMiddle.AreanameM
-
-					if m_slice == search_area {
-						url_option += "&areacode_m=" + area_result.GareaSmall[i].GareaMiddle.AreacodeM
-						search = true
-						logger.Write_log( "area check ok", 1 )
-						break
 					}
 
 
@@ -147,15 +152,17 @@ func Store_Search( conf config.Connect_data, keys *jwt.JWTKeys) http.HandlerFunc
 						l_search_area = search_area + "県"
 					}
 
-					if area_result.GareaSmall[i].Pref.PrefName == l_search_area {
-						url_option += "&pref=" + area_result.GareaSmall[i].Pref.PrefCode
-						search = true
-						logger.Write_log( "area check ok", 1 )
-						break						
-					}
-					
-					if search {
-						break
+					if !search {
+						if area_result.GareaSmall[i].Pref.PrefName == l_search_area {
+							url_option += "&pref=" + area_result.GareaSmall[i].Pref.PrefCode
+							search = true
+							logger.Write_log( "area check ok", 1 )
+							break						
+						}
+						
+						if search {
+							break
+						}
 					}
 					
 				}
@@ -169,7 +176,16 @@ func Store_Search( conf config.Connect_data, keys *jwt.JWTKeys) http.HandlerFunc
 		if err != nil {
 			logger.Write_log( "fail tap api", 1 )
 			logger.Write_log( err.Error(), 1 )
-			fmt.Fprintf( w, "false")
+			
+			responseResult := ResponseResult{
+				Status:    "No",
+				Data:      map[string]interface{}{},
+				ErrorText: "",
+			}
+
+			res, _ := json.Marshal( responseResult )
+			
+			util.Respond( res, w )
 			return
 		}
 
@@ -184,7 +200,7 @@ func Store_Search( conf config.Connect_data, keys *jwt.JWTKeys) http.HandlerFunc
 			instance.Rest_Day = result.Rest[i].Holiday
 			instance.Area = result.Rest[i].Code.AreanameS
 			instance.Average_Money = result.Rest[i].Budget
-
+			instance.Tel_Number = result.Rest[i].Tel
 			res_store_data = append( res_store_data, instance )
 		}
 
