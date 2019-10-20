@@ -14,7 +14,7 @@
       <div>
         <div class="input_component">
           <label>候補日<span style="color: red; ">*</span></label>
-          <ion-input placeholder="+ボタンから入力" [(ngModel)]="input_day"></ion-input>
+          <ion-input placeholder="日付を入力" [(ngModel)]="input_day"></ion-input>
           <ion-button class="add_button" (click)="addDay()">+</ion-button>
         </div>
         <div class="output_component" *ngFor="let day of days">{{day}}</div>
