@@ -1,13 +1,19 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>found-store</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div>
-    <ion-checkbox>イタリアン</ion-checkbox>
-    <ion-checkbox>中華</ion-checkbox>
+<ion-content class="found-store-background">
+  <div class="header_box">
+    <img class="header_logo" src="../../assets/img/logo.png" alt="">
+    <ion-button class="header_menu_button">三</ion-button>
   </div>
-  <div (click)="goResult()">検索検索♪</div>
+  <ion-header>お店検索</ion-header>
+  <ion-list>
+    <ion-item *ngFor="let param of api_param;index as i">
+      <ion-label>{{param}}</ion-label>
+      <ion-checkbox slot="end" checked="true" [(ngModel)]="send_data_list[i]"></ion-checkbox>
+    </ion-item>
+    <ion-item>
+      <ion-label>free_word</ion-label>
+      <ion-textarea [(ngModel)]="free_word"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="goResult()">検索検索♪</ion-button>
 </ion-content>
