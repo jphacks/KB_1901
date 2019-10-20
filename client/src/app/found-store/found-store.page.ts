@@ -9,9 +9,10 @@ import config from "../../../config";
     styleUrls: ['./found-store.page.scss'],
 })
 export class FoundStorePage implements OnInit {
-    private auth_token: string;
-    private components: string;
-    public free_word: string;
+    private area: string;
+    public freeword: string;
+    public login_flag: boolean = true;
+    private json_data;
 
     public api_param = [
         'No_smorking',
@@ -38,14 +39,21 @@ export class FoundStorePage implements OnInit {
 
     ngOnInit() {
         this.route.paramMap.subscribe((params: ParamMap) => {
-            this.auth_token = params.get('auth_token');
-            this.components = params.get('components');
+            this.area = params.get('area');
+            this.freeword = params.get('genre');
         });
+        if (this.area === 'null' || this.freeword === 'null') {
+            this.area = "";
+            this.freeword = "";
+            this.login_flag = false;
+        }
     }
 
     goResult() {
-        //this.router.navigateByUrl('/result');
-        console.log(this.send_data_list);
+        if (!this.area || !this.freeword) {
+            alert("エリア、もしくはフリーワードを入力してください。");
+            return;
+        }
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/store_search";
         const formData =
             'no_smorking=' + this.send_data_list[0] +
@@ -58,10 +66,12 @@ export class FoundStorePage implements OnInit {
             '&wifi=' + this.send_data_list[7] +
             '&projecter_screen=' + this.send_data_list[8] +
             '&web_reserve=' + this.send_data_list[9] +
-            '&freeword=' + this.free_word;
+            '&freeword=' + this.freeword +
+            '&area=' + this.area;
         const headers = {"headers": {"Content-Type": "application/x-www-form-urlencoded"}};
         this.http.post(url, formData, headers).subscribe(data => {
-            console.log(data);
+            this.json_data = JSON.parse(data['data'].json);
+            if (this.json_data === null) alert("見つかりませんでした。");
         }, error => {
             console.log(error);
         });
