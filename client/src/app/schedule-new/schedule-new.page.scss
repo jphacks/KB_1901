@@ -49,17 +49,24 @@
   height: 20px;
 }
 
-.add_button {
-  --background: #808080;
-  height: 40px;
-  width: 8%;
-  border-radius: 30px;
-  margin: 10px;
-  font-size: x-large;
-}
-
 .input_component {
   display: flex;
+  min-width: 100%;
+  
+  label{
+    min-width: 100px;
+  }
+  .add_button {
+    --background: #808080;
+    text-align: right;
+    height: 40px;
+    min-width: 40px;
+    width: 40px;
+    max-width: 40px;
+    border-radius: 30px;
+    margin: 10px;
+    font-size: x-large;
+  }
 }
 
 .output_component {
@@ -88,7 +95,7 @@ ion-input {
   border-radius: 10px;
   text-align: left;
   margin-left: 10%;
-  width: 70vw;
+  width: 70%;
 }
 
 ion-textarea {
@@ -96,11 +103,12 @@ ion-textarea {
   border-radius: 10px;
   text-align: left;
   margin-left: 10%;
-  width: 70vw;
+  max-width: 70vw;
 }
 
 ion-item {
   --background: none;
   margin-top: 5%;
   margin-bottom: 5%;
+  width: 100%;
 }
