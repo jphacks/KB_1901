@@ -1,0 +1,35 @@
+<ion-content class="found-store-background">
+  <div class="header_box">
+    <img class="header_logo" src="../../assets/img/logo.png" alt="">
+    <ion-button class="header_menu_button">三</ion-button>
+  </div>
+  <ion-header>お店検索</ion-header>
+  <ion-list>
+    <ion-item *ngFor="let param of api_param;index as i">
+      <ion-label>{{param}}</ion-label>
+      <ion-checkbox slot="end" checked="true" [(ngModel)]="send_data_list[i]"></ion-checkbox>
+    </ion-item>
+    <ion-item [hidden]="login_flag">
+      <ion-label>free_word</ion-label>
+      <ion-textarea [(ngModel)]="freeword"></ion-textarea>
+    </ion-item>
+    <ion-item [hidden]="login_flag">
+      <ion-label>エリア</ion-label>
+      <ion-textarea [(ngModel)]="area"></ion-textarea>
+    </ion-item>
+  </ion-list>
+
+  <ion-button (click)="goResult()">検索検索♪</ion-button>
+
+  <ion-list *ngFor="let json of json_data">
+    <ion-item>
+      <img src="{{json.store_image}}" alt="">
+      {{json.store_name}}
+      {{json.category}}
+      {{json.url}}
+      {{json.rest_day}}
+      {{json.area}}
+      {{json.average_money}}
+    </ion-item>
+  </ion-list>
+</ion-content>

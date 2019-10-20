@@ -1,0 +1,38 @@
+<ion-content class="schedule-id-background">
+  <div class="header_box">
+    <img class="header_logo" src="../../assets/img/logo.png" alt="">
+    <ion-button class="header_menu_button">三</ion-button>
+  </div>
+  <ion-header class="title">「{{plan_name}}」の予定</ion-header>
+
+
+  <div class="main_content_box">
+    <div class="content_top"></div>
+    <ion-item>
+      <div>
+        <ion-item>
+          <ion-label>回答数</ion-label>
+          <div>{{answer_count}}件</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>候補日</ion-label>
+          <div>{{day}}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>候補エリア</ion-label>
+          <div>{{area}}</div>
+        </ion-item>
+        <ion-item>
+          <ion-label>候補ジャンル</ion-label>
+          <div>{{answer_genre}}</div>
+        </ion-item>
+        <ion-item>
+          <div>コメント    {{free}}</div>
+        </ion-item>
+      </div>
+    </ion-item>
+  </div>
+  <div class="found_button">
+    <ion-button (click)="goFoundStore()">お店を探す</ion-button>
+  </div>
+</ion-content>
