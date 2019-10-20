@@ -15,16 +15,16 @@ export class FoundStorePage implements OnInit {
     private json_data;
 
     public api_param = [
-        'No_smorking',
-        'Card',
-        'Bottomless_cup',
-        'Buffet',
-        'Private_room',
-        'Midnight',
-        'Parking',
-        'Wifi',
-        'Projecter_screen',
-        'Web_reserve',
+        '禁煙席あり',
+        'クレジットカード対応',
+        '飲み放題あり',
+        '食べ放題あり',
+        '個室あり',
+        '深夜も営業',
+        '駐車場あり',
+        'Wifiあり',
+        'プロジェクター・スクリーンあり',
+        'web予約可',
     ];
 
     public send_data_list = [];
