@@ -46,7 +46,7 @@ export class HomePage {
     }
 
     goFoundStore() {
-        this.router.navigateByUrl('/found-store');
+        this.router.navigateByUrl('/found-store' + this.auth_token + '/' + this.user_name);
     }
 
 }
