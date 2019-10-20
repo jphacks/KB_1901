@@ -1,6 +1,6 @@
 # らくだ幹事長
 ![logo](imgs/logos/1_rakuda_logo_orange.png)
-[![video](Screenshot.png)](https://www.youtube.com/watch?v=2ZEs9WGf0Z0&t=4s)
+[![video](Screenshot.png)](https://youtu.be/cooiSmNAkRI)
 
 ## 製品概要
 
@@ -81,8 +81,8 @@
 
 ## 実行
 
-1. `cd client`
-2. `npm install`
-3. `npm install -g ionic@4`
-4. `ionic serve`
+1. `cd client`  
+2. `npm install`  
+3. `npm install -g ionic@4.12.0`  
+4. `ionic serve`  
 
