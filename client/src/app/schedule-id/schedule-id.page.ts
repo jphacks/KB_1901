@@ -56,7 +56,7 @@ export class ScheduleIdPage implements OnInit {
     }
 
     goFoundStore() {
-        this.router.navigateByUrl('/found-store');
+        this.router.navigateByUrl('/found-store/' + this.area[0] + '/' + this.answer_genre[0]);
     }
 
 }

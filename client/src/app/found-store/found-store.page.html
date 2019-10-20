@@ -9,9 +9,13 @@
       <ion-label>{{param}}</ion-label>
       <ion-checkbox slot="end" checked="true" [(ngModel)]="send_data_list[i]"></ion-checkbox>
     </ion-item>
-    <ion-item>
+    <ion-item [hidden]="login_flag">
       <ion-label>free_word</ion-label>
-      <ion-textarea [(ngModel)]="free_word"></ion-textarea>
+      <ion-textarea [(ngModel)]="freeword"></ion-textarea>
+    </ion-item>
+    <ion-item [hidden]="login_flag">
+      <ion-label>エリア</ion-label>
+      <ion-textarea [(ngModel)]="area"></ion-textarea>
     </ion-item>
   </ion-list>
 

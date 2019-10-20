@@ -9,7 +9,7 @@ const routes: Routes = [
     {path: 'schedule-list/:auth_token/:user_name', loadChildren: './schedule-list/schedule-list.module#ScheduleListPageModule'},
     {path: 'schedule-id/:auth_token/:key', loadChildren: './schedule-id/schedule-id.module#ScheduleIdPageModule'},
     {path: 'result', loadChildren: './result/result.module#ResultPageModule'},
-    {path: 'found-store/:auth_token/:components', loadChildren: './found-store/found-store.module#FoundStorePageModule'},
+    {path: 'found-store/:area/:genre', loadChildren: './found-store/found-store.module#FoundStorePageModule'},
     {path: 'schedule-form/:key', loadChildren: './schedule-form/schedule-form.module#ScheduleFormPageModule'},
 ];
 
