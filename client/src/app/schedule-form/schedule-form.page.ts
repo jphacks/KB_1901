@@ -13,21 +13,15 @@ export class ScheduleFormPage implements OnInit {
 
     private key: string;
 
-    title: string = '予定';
-    candidates: { day: string }[] = [
-        {day: '10/20'},
-        {day: '10/21'},
-        {day: '10/22'},
-    ];
+    public title: string;
+    public candidates = [];
+    public areas = [];
+    public genres = [];
 
-    select_day: { day: string, check: string }[] = [
-        {day: '10/20', check: ""},
-        {day: '10/21', check: ""},
-        {day: '10/22', check: ""},
-    ];
-    area: string = "";
-    genre: string = "";
-    free: string = "";
+    public input_area;
+    public input_genre;
+    public input_candidate = [];
+    public input_free;
 
     constructor(
         private http: HttpClient,
@@ -40,46 +34,66 @@ export class ScheduleFormPage implements OnInit {
         this.route.paramMap.subscribe((params: ParamMap) => {
             this.key = params.get('key');
         });
-      
+
         const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_check";
         const formData = "plan_key=" + encodeURI(this.key);
         const headers = {"headers": {"Content-Type": "application/x-www-form-urlencoded"}};
         this.http.post(url, formData, headers).subscribe(data => {
-            console.log(data);
+            let json_data = JSON.parse(data["data"].json);
+            this.title = json_data.plan_name;
+            for (let day of json_data.day) {
+                this.candidates.push(day);
+                this.input_candidate.push("");
+            }
+            for (let area of json_data.area) this.areas.push(area);
+            for (let genre of json_data.genre) this.genres.push(genre);
+
         }, error => {
             console.log(error);
         });
     }
 
-    segmentChanged(ev: any, day: string) {
-        console.log('Segment changed', day, ev.target.value);
-        this.select_day.find((sd) => sd.day == day).check = ev.target.value;
-        console.log(this.select_day);
-    }
 
-    handleAreaSelect(ev: any) {
-        this.area = ev.detail.value;
-        console.log(this.area);
-    }
-
-    handleGenreSelect(ev: any) {
-        this.genre = ev.detail.value;
-        console.log(this.area);
-    }
-
-    handleFreeWrite(ev: any) {
-        this.free = ev.detail.value;
-        console.log(this.area);
+    trackBy(index: number, obj: any): any {
+        return index;
     }
 
     submitData() {
-        let data = {
-            "area": this.area,
-            "genre": this.genre,
-            "free": this.free,
-            "select_day": this.select_day,
+        console.log(this.input_free);
+        console.log(this.input_candidate);
+        console.log(this.input_genre);
+        console.log(this.input_area);
+
+        let result = {
+            'area': this.areas[this.input_area],
+            'genre': this.genres[this.input_genre],
+            'free': this.input_free,
+            'select_day': []
         };
 
-        console.log(data);
+        for (let i = 0; i < this.candidates.length; i++) result['select_day'].push({
+            'day': this.candidates[i],
+            'Check': Number(this.input_candidate[i])
+        });
+
+        console.log(result);
+
+        const url: string = config.urlScheme + config.host + config.port + "/app/v0/plan_form";
+        const formData =
+            "plan_key=" + encodeURI(this.key) +
+            "&form_data=" + encodeURI(JSON.stringify(result));
+        const headers = {
+            "headers": {
+                "Content-Type": "application/x-www-form-urlencoded"
+            }
+        };
+        this.http.post(url, formData, headers).subscribe(data => {
+            console.log(data);
+            alert("送信が完了しました。");
+        }, error => {
+            alert("何らかのエラーが発生しました。")
+        });
+
+
     }
 }

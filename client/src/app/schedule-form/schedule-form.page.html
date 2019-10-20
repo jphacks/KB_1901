@@ -1,57 +1,65 @@
-<ion-header>
-  <ion-toolbar>
-    <ion-title>schedule-form</ion-title>
-  </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <div>
-    <ion-label floating>{{title}}</ion-label>
+<ion-content class="schedule-form-background">
+  <div class="header_box">
+    <img class="header_logo" src="../../assets/img/logo.png" alt="">
+    <ion-button class="header_menu_button">三</ion-button>
   </div>
 
-  <form #form="ngForm" (ngSubmit)="submitData()">
-    <div>
-      <ion-label>候補日:</ion-label>
-      <ion-list>
-        <ion-item *ngFor="let c of candidates">
-          {{c.day}}
-          <ion-segment (ionChange)="segmentChanged($event, c.day)">
-            <ion-segment-button value="1">
-              <ion-label>◯</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="2">
-              <ion-label>△</ion-label>
-            </ion-segment-button>
-            <ion-segment-button value="3">
-              <ion-label>×</ion-label>
-            </ion-segment-button>
-          </ion-segment>
-        </ion-item>
-      </ion-list>
-    </div>
-    <div>
-      <ion-item>
-        <ion-label>メモ:</ion-label>
-        <ion-input placeholder="いんぷっと"></ion-input>
-      </ion-item>
-    </div>
+  <ion-list-header>
+    <ion-label>予定タイトル</ion-label>
+  </ion-list-header>
+  <div>
+    <ion-label>{{title}}</ion-label>
+  </div>
 
-    <div>
-      <ion-label>お店のリクエスト:</ion-label>
-      <ion-list>
-        <ion-label>希望エリア</ion-label>
-        <ion-input placeholder="いんぷっと" (ionChange)="handleAreaSelect($event)"></ion-input>
-        <ion-label>希望ジャンル</ion-label>
-        <ion-input placeholder="いんぷっと" (ionChange)="handleGenreSelect($event)"></ion-input>
-        <ion-label>自由記述</ion-label>
-        <ion-item>
-          <ion-textarea placeholder="Enter more information here..."
-                        (ionChange)="handleFreeWrite($event)"></ion-textarea>
+  <ion-list-header>
+    <ion-label>日付</ion-label>
+  </ion-list-header>
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let day of candidates;let i = index;trackBy: trackBy">
+        {{day}}
+        <ion-segment [(ngModel)]="input_candidate[i]">
+          <ion-segment-button value="1">
+            <ion-label>◯</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="2">
+            <ion-label>△</ion-label>
+          </ion-segment-button>
+          <ion-segment-button value="3">
+            <ion-label>×</ion-label>
+          </ion-segment-button>
+        </ion-segment>
+      </ion-item>
+
+      <ion-radio-group [(ngModel)]="input_area">
+        <ion-list-header>
+          <ion-label>エリア</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let area of areas;index as i">
+          <ion-label>{{area}}</ion-label>
+          <ion-radio slot="start" value="{{i}}" checked=""></ion-radio>
         </ion-item>
-      </ion-list>
-    </div>
-    <div class="ion-padding">
-      <ion-button expand="block" type="submit">Submit</ion-button>
-    </div>
-  </form>
+      </ion-radio-group>
+
+      <ion-radio-group [(ngModel)]="input_genre">
+        <ion-list-header>
+          <ion-label>お店のジャンル</ion-label>
+        </ion-list-header>
+        <ion-item *ngFor="let genre of genres;index as i">
+          <ion-label>{{genre}}</ion-label>
+          <ion-radio slot="start" value="{{i}}" checked=""></ion-radio>
+        </ion-item>
+      </ion-radio-group>
+    </ion-list>
+  </div>
+  <div>
+    <ion-item>
+      <ion-label>メモ:</ion-label>
+      <ion-input placeholder="いんぷっと" [(ngModel)]="input_free"></ion-input>
+    </ion-item>
+  </div>
+
+  <div class="ion-padding">
+    <ion-button (click)="submitData()" expand="block" type="submit">回答する</ion-button>
+  </div>
 </ion-content>
